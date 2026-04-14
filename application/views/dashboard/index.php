@@ -22,7 +22,7 @@
 	</div>
 </div>
 
-<div class="card">
+<div class="card" style="margin-top: 20px;">
 	<h3>Faktur Terbaru</h3>
 	<table>
 		<thead>
