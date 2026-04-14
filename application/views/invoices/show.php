@@ -42,7 +42,7 @@
 		</tbody>
 		<tfoot>
 			<tr>
-				<th colspan="3">TOTAL</th>
+				<th colspan="3" style="text-align:center;">TOTAL</th>
 				<th><?php echo number_format($invoice['total_quantity'], 0, ',', '.'); ?></th>
 				<th><?php echo number_format($invoice['total_unit_price'], 0, ',', '.'); ?></th>
 				<th><?php echo number_format($invoice['grand_total'], 0, ',', '.'); ?></th>
