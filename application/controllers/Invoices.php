@@ -114,8 +114,8 @@ class Invoices extends Admin_Controller
 			'customers' => $this->Master_model->get_all('customers'),
 			'units' => $this->Master_model->get_all('units'),
 			'products' => $this->Product_model->get_all(),
+			'invoice_no' => $this->Invoice_model->generateInvoiceNumber()
 		);
-
 		$this->render('invoices/form', $data);
 	}
 

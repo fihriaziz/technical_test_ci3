@@ -73,4 +73,46 @@ class Invoice_model extends CI_Model
 	{
 		return $this->db->delete('invoices', array('id' => $id));
 	}
+
+	public function generateInvoiceNumber()
+	{
+		$month = date('n');
+		$year  = date('Y');
+		$romanMonth = $this->getRomanMonth($month);
+
+		$prefix = '/TD/' . $romanMonth . '/' . $year;
+
+		$this->db->select('MAX(CAST(SUBSTRING_INDEX(invoice_no, "/", 1) AS UNSIGNED)) as last_no');
+		$this->db->from('invoices');
+		$this->db->like('invoice_no', $prefix, 'both');
+
+		$query = $this->db->get();
+		$result = $query->row();
+
+		$nextNumber = ($result->last_no) ? $result->last_no + 1 : 1;
+
+		$number = str_pad($nextNumber, 3, '0', STR_PAD_LEFT);
+
+		return $number . $prefix;
+	}
+
+	private function getRomanMonth($month)
+	{
+		$roman = [
+			1 => 'I',
+			2 => 'II',
+			3 => 'III',
+			4 => 'IV',
+			5 => 'V',
+			6 => 'VI',
+			7 => 'VII',
+			8 => 'VIII',
+			9 => 'IX',
+			10 => 'X',
+			11 => 'XI',
+			12 => 'XII'
+		];
+
+		return $roman[(int)$month];
+	}
 }
