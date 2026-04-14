@@ -50,16 +50,25 @@
 		</tfoot>
 	</table>
 
-	<table class="invoice-summary" style="margin-top: 26px;">
-		<tr>
-			<td>Purchasing</td>
-			<td style="text-align:right;">Cirebon, <?php echo date('d F Y', strtotime($invoice['invoice_date'])); ?></td>
-		</tr>
-		<tr>
-			<td style="padding-top: 54px;"><strong><?php echo html_escape($invoice['purchasing_name']); ?></strong></td>
-			<td style="padding-top: 54px; text-align:right;"><strong><?php echo html_escape($invoice['recipient_name']); ?></strong></td>
-		</tr>
-	</table>
+	<div style="display: flex; justify-content: space-between; margin-top: 26px;">
+			<table class="invoice-summary" style="margin-top: 26px;margin-left: 0;">
+			<tr>
+				<td>Purchasing</td>
+			</tr>
+			<tr>
+				<td style="padding-top: 54px;"><strong><?php echo html_escape($invoice['purchasing_name']); ?></strong></td>
+			</tr>
+		</table>
+			<table class="invoice-summary" style="margin-top: 26px;">
+			<tr>
+				<td style="text-align:right;">Cirebon, <?php echo date('d F Y', strtotime($invoice['invoice_date'])); ?></td>
+			</tr>
+			<tr>
+				<td style="padding-top: 54px; text-align:right;"><strong><?php echo html_escape($invoice['recipient_name']); ?></strong></td>
+			</tr>
+		</table>
+	</div>
+	
 </div>
 
 <div class="btn-row">
