@@ -8,7 +8,7 @@ $invoice_items = isset($invoice['items']) && !empty($invoice['items']) ? $invoic
 		<div class="form-grid">
 			<div class="form-group">
 				<label for="invoice_no">Nomor Faktur</label>
-				<input type="text" readonly id="invoice_no" name="invoice_no" value="<?php echo set_value('invoice_no', isset($invoice_no) ? $invoice_no : ''); ?>">
+				<input type="text" readonly id="invoice_no" name="invoice_no" value="<?php echo set_value('invoice_no', isset($invoice['invoice_no']) ? $invoice['invoice_no'] : $invoice_no); ?>">
 				<div class="error-text"><?php echo form_error('invoice_no'); ?></div>
 			</div>
 			<div class="form-group">
